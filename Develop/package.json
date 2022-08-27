@@ -1,0 +1,25 @@
+{
+  "name": "develop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "fs": "0.0.1-security",
+    "inquirer": "^6.5.2",
+    "path": "^0.12.7",
+    "promisify": "0.0.3"
+  },
+  "devDependencies": {
+    "jest": "^29.0.1"
+  }
+}
