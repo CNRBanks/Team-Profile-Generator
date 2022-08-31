@@ -10,7 +10,7 @@ const Employee = require("./Develop/lib/Employee.js");
 // Empty array to store profile inputs
 const theTeam = [];
 // Main Menu options
-const mainMenu = [ {
+const menuList = [ {
   type: "list",
   name: "menuOpciones",
   message: "Would you like to -",
@@ -89,19 +89,35 @@ const managerQs = [
   },
 ];
 
-function menuOptions() {
-  inquirer.prompt(preguntas)
-  .then((answers))
-}
 
 // start application and prompt user to enter manager name, employee ID, email address, and office number
+function init()
+  inquirer.prompt(managerQs).then((answers) => {
+    // create a manager
+    const manager = Manager (
+
+    )
+  })
 // then display menu with the option to add an engineer or an intern or to finish
+function mainMenu() {
+  inquirer.prompt(menuQuestions).then((answers) => {
+
+  })
+}
 // if engineer, enter engineer’s name, ID, email, and GitHub username
 // return to the menu
 // if intern, enter intern’s name, ID, email, and school
 // return to menu
 // if finish then exit application and generate HTML to teamGenerated.js
-
+function completeTeam() {
+  console.log('Team Complete!');
+  console.log(teamGenerated)
+    writeToFile("team.html", generateTeam(teamGenerated), (err) => {
+      if (err) throw new Error(err);
+      console.log("Go checkout your team!");
+      // console.log(team);
+  });
+}
 
 
 
@@ -110,21 +126,24 @@ function menuOptions() {
 
 
 // TODO: Initialize app and export to html file via fs.writeFile
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
-      if (err) {
-        return console.log(err);
-      } else {
-        console.log("The Team member has been created succesfully!");
-      }
-    });
-  }
-function init() {
-  inquirer.prompt(engineerQs).then((data) => {
-    writeToFile("teamGenerated.js", MarkDown(data));
+// function writeToFile(fileName, data) {
+//     fs.writeFile(fileName, data, (err) => {
+//       if (err) {
+//         return console.log(err);
+//       } else {
+//         console.log("The Team member has been created succesfully!");
+//       }
+//     });
+//   }
+function completeTeam() {
+  console.log('Team Complete!');
+  console.log(teamGenerated)
+    writeToFile("team.html", generateTeam(teamGenerated), (err) => {
+      if (err) throw new Error(err);
+      console.log("Go checkout your team!");
     // console.log(data);
   });
 }
 
 
-init();
+// init();
