@@ -7,9 +7,21 @@ const Engineer = require("./Develop/lib/Engineer.js");
 const Intern = require("./Develop/lib/Intern.js");
 const Manager = require("./Develop/lib/Manager.js");
 const Employee = require("./Develop/lib/Employee.js");
-// Empty array to capture inputs
-const TEAM = [];
-// Questions for each employee type
+// Empty array to store profile inputs
+const theTeam = [];
+// Main Menu options
+const mainMenu = [ {
+  type: "list",
+  name: "menuOpciones",
+  message: "Would you like to -",
+  choices: [
+    "Create Engineer Profile",
+    "Create Intern Profile",
+    "Complete Team - Exit App"
+  ]
+}
+]
+// Questions for each employee profile
 const engineerQs = [
   {
     type: "input",
@@ -76,6 +88,27 @@ const managerQs = [
     message: "Manager's Office Number: ",
   },
 ];
+
+function menuOptions() {
+  inquirer.prompt(preguntas)
+  .then((answers))
+}
+
+// start application and prompt user to enter manager name, employee ID, email address, and office number
+// then display menu with the option to add an engineer or an intern or to finish
+// if engineer, enter engineer’s name, ID, email, and GitHub username
+// return to the menu
+// if intern, enter intern’s name, ID, email, and school
+// return to menu
+// if finish then exit application and generate HTML to teamGenerated.js
+
+
+
+
+
+
+
+
 // TODO: Initialize app and export to html file via fs.writeFile
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {

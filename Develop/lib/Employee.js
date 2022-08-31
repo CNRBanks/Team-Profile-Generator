@@ -1,22 +1,23 @@
-// TODO - create employee object
+// TODO - create employee class
 class Employee {
-  constructor(correo, identificacion, nombre) {
-    this.correo = correo;
-    this.identificacion = identificacion;
-    this.nombre = nombre;
+  constructor(email, id, name) {
+    this.email = email;
+    this.id = id;
+    this.name = name;
   }
-  getCorreo() {
-    this.correo;
+  getEmail() {
+    this.email;
   }
-  getIdentificacion() {
-    this.identificacion;
+  getId() {
+    this.id;
   }
-  getNombre() {
-    this.nombre;
+  getName() {
+    this.name;
   }
   getRole() {
     "Employee";
   }
 }
-
+// export employee class to allow other classes to extend from it
 module.exports = Employee;
+console.log(Employee)
