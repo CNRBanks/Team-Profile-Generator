@@ -2,10 +2,10 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 // Importing classes
-const teamGenerated = require("./src/teamGenerated.js");
-const Engineer = require("./lib/Engineer.js");
-const Intern = require("./lib/Intern.js");
-const Manager = require("./lib/Manager.js");
+const teamGenerated = require("./Develop/src/teamGenerated.js");
+const Engineer = require("./Develop/lib/Engineer.js");
+const Intern = require("./Develop/lib/Intern.js");
+const Manager = require("./Develop/lib/Manager.js");
 // Empty array to capture inputs
 const TEAM = [];
 // Questions for each employee type
