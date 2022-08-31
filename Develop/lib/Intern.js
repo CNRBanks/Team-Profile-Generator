@@ -1,0 +1,1 @@
+// TODO: write Intern class that extends from employee object
