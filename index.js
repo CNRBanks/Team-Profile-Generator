@@ -2,12 +2,12 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 // Importing classes
-const teamGenerated = require("./Develop/src/teamGenerated.js");
+const teamGenerated = require("./Develop/src/createTeam.js");
 const Engineer = require("./Develop/lib/Engineer.js");
 const Intern = require("./Develop/lib/Intern.js");
 const Manager = require("./Develop/lib/Manager.js");
 const Employee = require("./Develop/lib/Employee.js");
-const generateTeam = require("./Develop/src/teamGenerated");
+const createTeam = require("./Develop/src/createTeam");
 // Empty array to store profile inputs
 const theTeam = [];
 // Main Menu options
@@ -98,6 +98,7 @@ function init() {
       respuestas.managerNombre
     );
     theTeam.push(manager);
+    // return to main menu
     mainMenu();
   });
 }
@@ -147,7 +148,7 @@ function createIntern() {
 function completeTeam() {
   console.log("Team Complete!");
   console.log(theTeam);
-  fs.writeFile("team.html", generateTeam(theTeam), (err) => {
+  fs.writeFile("teamProfiles.html", createTeam(theTeam), (err) => {
     if (err) throw new Error(err);
     console.log("Go checkout your team!");
     // console.log(team);
