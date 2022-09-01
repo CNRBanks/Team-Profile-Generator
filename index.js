@@ -7,20 +7,18 @@ const Engineer = require("./Develop/lib/Engineer.js");
 const Intern = require("./Develop/lib/Intern.js");
 const Manager = require("./Develop/lib/Manager.js");
 const Employee = require("./Develop/lib/Employee.js");
+const generateTeam = require("./Develop/src/teamGenerated");
 // Empty array to store profile inputs
 const theTeam = [];
 // Main Menu options
-const menuList = [ {
-  type: "list",
-  name: "menuOpciones",
-  message: "Would you like to -",
-  choices: [
-    "Create Engineer Profile",
-    "Create Intern Profile",
-    "Complete Team - Exit App"
-  ]
-}
-]
+const menuList = [
+  {
+    type: "list",
+    name: "menuOpciones",
+    message: "Would you like to -",
+    choices: ["Engineer", "Intern", "Complete Team - Exit App"],
+  },
+];
 // Questions for each employee profile
 const engineerQs = [
   {
@@ -44,7 +42,7 @@ const engineerQs = [
     message: "Engineer's GitHub Account: ",
   },
 ];
-const InternQs = [
+const internQs = [
   {
     type: "input",
     name: "internNombre",
@@ -89,61 +87,71 @@ const managerQs = [
   },
 ];
 
-
-// start application and prompt user to enter manager name, employee ID, email address, and office number
-function init()
-  inquirer.prompt(managerQs).then((answers) => {
+//start application and prompt user to enter manager name, employee ID, email address, and office number
+function init() {
+  inquirer.prompt(managerQs).then((respuestas) => {
     // create a manager
-    const manager = Manager (
+    const manager = new Manager(
+      respuestas.managerOficina,
+      respuestas.managerCorreo,
+      respuestas.managerIdentificacion,
+      respuestas.managerNombre
+    );
+    theTeam.push(manager);
+    mainMenu();
+  });
+}
 
-    )
-  })
 // then display menu with the option to add an engineer or an intern or to finish
 function mainMenu() {
-  inquirer.prompt(menuQuestions).then((answers) => {
-
-  })
+  inquirer.prompt(menuList).then((respuestas) => {
+    console.log(respuestas);
+    if (respuestas.menuOpciones === "Engineer") {
+      createEngineer();
+    } else if (respuestas.menuOpciones === "Intern") {
+      createIntern();
+    } else completeTeam();
+  });
 }
 // if engineer, enter engineer’s name, ID, email, and GitHub username
-// return to the menu
+function createEngineer() {
+  inquirer.prompt(engineerQs).then((respuestas) => {
+    const engineer = new Engineer(
+      respuestas.engineerGit,
+      respuestas.engineerCorreo,
+      respuestas.engineerIdentificacion,
+      respuestas.engineerNombre
+    );
+    theTeam.push(engineer);
+    // return to the menu
+    mainMenu();
+  });
+  console.log("engineer");
+}
 // if intern, enter intern’s name, ID, email, and school
-// return to menu
+function createIntern() {
+  inquirer.prompt(internQs).then((respuestas) => {
+    const intern = new Intern(
+      respuestas.internEscuela,
+      respuestas.internCorreo,
+      respuestas.internIdentificacion,
+      respuestas.internNombre
+    );
+    theTeam.push(intern);
+    // return to menu
+    mainMenu();
+  });
+  console.log("intern");
+}
 // if finish then exit application and generate HTML to teamGenerated.js
 function completeTeam() {
-  console.log('Team Complete!');
-  console.log(teamGenerated)
-    writeToFile("team.html", generateTeam(teamGenerated), (err) => {
-      if (err) throw new Error(err);
-      console.log("Go checkout your team!");
-      // console.log(team);
+  console.log("Team Complete!");
+  console.log(theTeam);
+  fs.writeFile("team.html", generateTeam(theTeam), (err) => {
+    if (err) throw new Error(err);
+    console.log("Go checkout your team!");
+    // console.log(team);
   });
 }
 
-
-
-
-
-
-
-// TODO: Initialize app and export to html file via fs.writeFile
-// function writeToFile(fileName, data) {
-//     fs.writeFile(fileName, data, (err) => {
-//       if (err) {
-//         return console.log(err);
-//       } else {
-//         console.log("The Team member has been created succesfully!");
-//       }
-//     });
-//   }
-function completeTeam() {
-  console.log('Team Complete!');
-  console.log(teamGenerated)
-    writeToFile("team.html", generateTeam(teamGenerated), (err) => {
-      if (err) throw new Error(err);
-      console.log("Go checkout your team!");
-    // console.log(data);
-  });
-}
-
-
-// init();
+init();

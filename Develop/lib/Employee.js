@@ -1,18 +1,18 @@
 // TODO - create employee class
 class Employee {
-  constructor(email, id, name) {
-    this.email = email;
+  constructor(correo, id, nombre) {
+    this.correo = correo;
     this.id = id;
-    this.name = name;
+    this.nombre = nombre;
   }
-  getEmail() {
-    this.email;
+  getCorreo() {
+    this.correo;
   }
   getId() {
     this.id;
   }
-  getName() {
-    this.name;
+  getNombre() {
+    this.nombre;
   }
   getRole() {
     "Employee";
