@@ -14,7 +14,7 @@ class Employee {
   getNombre() {
     this.nombre;
   }
-  getRole() {
+  getEmpleo() {
     "Employee";
   }
 }

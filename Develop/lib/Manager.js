@@ -10,7 +10,7 @@ class Manager extends Employee {
   getOficina() {
     this.oficina;
   }
-  getRole() {
+  getEmpleo() {
     "Manager";
   }
 }
