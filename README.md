@@ -1,4 +1,4 @@
-# Employee-Summary-Template-Engine
+# Team-Profile-Generator
 
 https://github.com/CNRBanks/Team-Profile-Generator
 
