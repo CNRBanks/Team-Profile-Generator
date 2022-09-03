@@ -67,6 +67,8 @@ function teamPersonas(perfiles) {
   personas.join("");
 }
 
+
+
 function teamCuerpo(perfiles) {
   `<!DOCTYPE html>
 <html lang="en">

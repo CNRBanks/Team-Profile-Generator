@@ -87,6 +87,8 @@ const managerQs = [
   },
 ];
 
+
+
 //start application and prompt user to enter manager name, employee ID, email address, and office number
 function init() {
   inquirer.prompt(managerQs).then((respuestas) => {
@@ -112,7 +114,7 @@ function mainMenu() {
     } else if (respuestas.menuOpciones === "Intern") {
       createIntern();
     } else completeTeam();
-    console.log(completeTeam)
+    // console.log(completeTeam)
   });
 }
 console.log(perfiles)
@@ -129,7 +131,7 @@ function createEngineer() {
     // return to the menu
     mainMenu();
   });
-  console.log("engineer");
+  // console.log("engineer");
 }
 // if intern, enter intern’s name, ID, email, and school
 function createIntern() {
@@ -144,12 +146,13 @@ function createIntern() {
     // return to menu
     mainMenu();
   });
-  console.log("intern");
+  // console.log("intern");
 }
 // if finish then exit application and generate HTML to teamGenerated.js
-function completeTeam() {
+  function completeTeam() {
   console.log("Team Complete!");
-  console.log(perfiles)
+  // console.log(perfiles)
+  console.log(teamCuerpo(perfiles))
   // console.log(perfiles);
   fs.writeFile("teamProfiles.html", teamCuerpo(perfiles), (err) => {
     if (err) throw new Error(err);
