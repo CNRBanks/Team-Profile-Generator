@@ -1,4 +1,3 @@
-
 // functions for gathering team profiles
 function teamPersonas(perfiles) {
   const personas = [];
@@ -53,21 +52,25 @@ function teamPersonas(perfiles) {
   </div>`;
     personas.push(profileInterno);
   }
-  for (let i = 0; i < perfiles.length; i++) {
-    if (perfiles[i].getEmpleo() == "Manager") {
-      elJefe(perfiles[i]);
-    }
-    if (perfiles[i].getEmpleo() == "Engineer") {
-      elIngeniero(perfiles[i]);
-    }
-    if (perfiles[i].getEmpleo() == "Intern") {
-      elInterno(perfiles[i]);
-    }
-  }
-  personas.join("");
+  // for (let i = 0; i < perfiles.length; i++) {
+  //   if (perfiles[i].getEmpleo() == "Manager") {
+  //     elJefe(perfiles[i]);
+  //   }
+  //   if (perfiles[i].getEmpleo() == "Engineer") {
+  //     elIngeniero(perfiles[i]);
+  //   }
+  //   if (perfiles[i].getEmpleo() == "Intern") {
+  //     elInterno(perfiles[i]);
+  //   }
+  // }
+  // personas.join("");
+  const todosPerfiles = perfiles.filter((persona) => {
+    return persona.profileJefe == "Manager";
+  }, todosPerfiles.join(""));
+  console.log(todosPerfiles);
 }
 
-
+console.log(perfiles);
 
 function teamCuerpo(perfiles) {
   `<!DOCTYPE html>
@@ -86,4 +89,4 @@ function teamCuerpo(perfiles) {
 }
 
 module.exports = teamCuerpo;
-console.log(teamCuerpo);
+// console.log(teamCuerpo);
