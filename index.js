@@ -3,9 +3,9 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 // Importing classes
 const teamGenerated = require("./src/createTeam.js");
-const Engineer = require("./Develop/lib/Engineer.js");
-const Intern = require("./Develop/lib/Intern.js");
-const Manager = require("./Develop/lib/Manager.js");
+const Engineer = require("./lib/Engineer.js");
+const Intern = require("./lib/Intern.js");
+const Manager = require("./lib/Manager.js");
 // const Employee = require("./Develop/lib/Employee.js");
 const teamCuerpo = require("./src/createTeam");
 // Empty array to store profile inputs

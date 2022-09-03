@@ -9,7 +9,3 @@ const trabajador = new Employee("dingus@yahoo.com", "12", "bob");
 test("email is stored correctly", () => {
   expect(trabajador.correo).toBe("dingus@yahoo.com");
 });
-
-test("properly adds two numbers", () => {
-  expect(sum(1, 2).toBe(3));
-});
